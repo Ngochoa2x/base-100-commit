@@ -1,0 +1,13 @@
+$start = Get-Date "2024-01-01"
+
+for ($i=1; $i -le 100; $i++) {
+  $date = $start.AddDays($i).ToString("yyyy-MM-ddTHH:mm:ss")
+
+  Add-Content history.txt "log $i"
+  git add history.txt
+
+  $env:GIT_AUTHOR_DATE=$date
+  $env:GIT_COMMITTER_DATE=$date
+
+  git commit -m "update day $i"
+}
