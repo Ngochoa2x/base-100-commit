@@ -1,0 +1,6 @@
+for i in {1..100}; do
+  echo "file $i created at $(date)" > batch_$i.txt
+done
+
+git add .
+git commit -m "feat: add 100 files at once"
