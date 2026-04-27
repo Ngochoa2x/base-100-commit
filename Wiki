@@ -1,0 +1,8 @@
+for i in {1..100}; do
+  echo "data $i $(date)" > file_$i.txt
+  git add file_$i.txt
+
+  if (( i % 10 == 0 )); then
+    git commit -m "batch commit $i"
+  fi
+done
