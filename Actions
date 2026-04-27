@@ -1,0 +1,8 @@
+for i in {1..100}
+do
+  FILE="note_$((RANDOM%10)).txt"
+  echo "update $RANDOM at $(date)" >> $FILE
+  git add $FILE
+  git commit -m "random update $RANDOM"
+  sleep $((RANDOM%3+1))
+done
