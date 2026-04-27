@@ -1,0 +1,12 @@
+import os
+import random
+from datetime import datetime
+
+for i in range(1, 101):
+    filename = f"data_{random.randint(1,5)}.txt"
+    
+    with open(filename, "a") as f:
+        f.write(f"update {random.randint(1000,9999)} - {datetime.now()}\n")
+
+    os.system("git add .")
+    os.system(f'git commit -m "chore: update {i}"')
