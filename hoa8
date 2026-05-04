@@ -1,0 +1,22 @@
+cat > base_timer.js <<'EOF'
+function countdown(seconds) {
+  let timeLeft = seconds;
+
+  const timer = setInterval(() => {
+    console.log(`Base task starts in ${timeLeft}s`);
+
+    timeLeft--;
+
+    if (timeLeft < 0) {
+      clearInterval(timer);
+      console.log("Base mission started 🚀");
+    }
+  }, 1000);
+}
+
+countdown(5);
+EOF
+
+git add base_timer.js
+git commit -m "add base countdown timer"
+git push
