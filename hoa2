@@ -1,0 +1,4 @@
+echo "console.log('hello base')" > base.js
+git add base.js
+git commit -m "add base script"
+git push
