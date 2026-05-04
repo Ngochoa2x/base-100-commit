@@ -1,0 +1,20 @@
+cat > base_mint_counter.js <<'EOF'
+const mints = [
+  { collection: "Base Art", amount: 2 },
+  { collection: "Builder Badge", amount: 1 },
+  { collection: "Onchain Pass", amount: 3 }
+];
+
+function countMints(items) {
+  return items.reduce((total, item) => total + item.amount, 0);
+}
+
+const totalMints = countMints(mints);
+
+console.log(`Total Base NFTs minted: ${totalMints}`);
+console.log(totalMints >= 5 ? "Minting streak looks strong 🚀" : "Keep minting and building.");
+EOF
+
+git add base_mint_counter.js
+git commit -m "add base mint counter"
+git push
