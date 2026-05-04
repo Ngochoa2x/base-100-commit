@@ -1,0 +1,19 @@
+cat > base_streak.py <<'EOF'
+from datetime import date
+
+start_day = date(2026, 5, 1)
+today = date.today()
+
+streak_days = (today - start_day).days + 1
+
+print(f"Base building streak: {streak_days} days 🔥")
+
+if streak_days >= 7:
+    print("Nice streak. Keep the Base momentum alive.")
+else:
+    print("Still early. Build daily, stack progress.")
+EOF
+
+git add base_streak.py
+git commit -m "add base streak tracker"
+git push
