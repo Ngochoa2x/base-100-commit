@@ -1,0 +1,22 @@
+cat > base_swap_stats.py <<'EOF'
+swaps = [
+    {"token": "ETH", "volume": 120},
+    {"token": "USDC", "volume": 85},
+    {"token": "DAI", "volume": 40},
+]
+
+total_volume = sum(item["volume"] for item in swaps)
+top_token = max(swaps, key=lambda item: item["volume"])
+
+print(f"Total Base swap volume: ${total_volume}")
+print(f"Top swapped token: {top_token['token']}")
+
+if total_volume >= 200:
+    print("Base activity looking solid 🚀")
+else:
+    print("Keep swapping, keep building.")
+EOF
+
+git add base_swap_stats.py
+git commit -m "add base swap stats"
+git push
