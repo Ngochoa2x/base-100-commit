@@ -1,0 +1,23 @@
+cat > base_portfolio.js <<'EOF'
+const portfolio = [
+  { asset: "ETH", value: 220 },
+  { asset: "USDC", value: 75 },
+  { asset: "NFT Badge", value: 30 }
+];
+
+const totalValue = portfolio.reduce((sum, item) => sum + item.value, 0);
+
+console.log("Base portfolio snapshot:");
+
+portfolio.forEach(item => {
+  const percent = ((item.value / totalValue) * 100).toFixed(1);
+  console.log(`${item.asset}: $${item.value} - ${percent}%`);
+});
+
+console.log(`Total value on Base: $${totalValue}`);
+console.log("Keep building that on-chain footprint 🚀");
+EOF
+
+git add base_portfolio.js
+git commit -m "add base portfolio script"
+git push
