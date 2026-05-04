@@ -1,0 +1,17 @@
+cat > base_gas_tracker.js <<'EOF'
+const gasPrices = [0.12, 0.09, 0.15, 0.11, 0.08];
+
+function getAverageGas(prices) {
+  const total = prices.reduce((sum, price) => sum + price, 0);
+  return total / prices.length;
+}
+
+const averageGas = getAverageGas(gasPrices);
+
+console.log(`Average Base gas fee: ${averageGas.toFixed(3)} ETH`);
+console.log(averageGas < 0.1 ? "Cheap time to build 🚀" : "Maybe wait for lower gas");
+EOF
+
+git add base_gas_tracker.js
+git commit -m "add base gas tracker"
+git push
