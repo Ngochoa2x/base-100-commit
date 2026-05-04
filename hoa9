@@ -1,0 +1,21 @@
+cat > base_wallet_score.js <<'EOF'
+const wallet = {
+  address: "0xYourWallet",
+  transactions: 18,
+  activeDays: 7,
+  questsDone: 5
+};
+
+function calculateScore(data) {
+  return data.transactions * 2 + data.activeDays * 5 + data.questsDone * 10;
+}
+
+const score = calculateScore(wallet);
+
+console.log(`Wallet: ${wallet.address}`);
+console.log(`Base activity score: ${score}`);
+EOF
+
+git add base_wallet_score.js
+git commit -m "add base wallet score"
+git push
