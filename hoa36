@@ -1,0 +1,22 @@
+cat > base_daily_note.js <<'EOF'
+const dailyNote = {
+  chain: "Base",
+  mood: "still building",
+  task: "show up on-chain",
+  streak: 12
+};
+
+function printNote(note) {
+  console.log(`Chain: ${note.chain}`);
+  console.log(`Mood: ${note.mood}`);
+  console.log(`Today task: ${note.task}`);
+  console.log(`Builder streak: ${note.streak} days`);
+}
+
+printNote(dailyNote);
+console.log("Small commit today, bigger alpha tomorrow 🚀");
+EOF
+
+git add base_daily_note.js
+git commit -m "add base daily note"
+git push
