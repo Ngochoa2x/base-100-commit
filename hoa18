@@ -1,0 +1,18 @@
+cat > base_bridge_log.py <<'EOF'
+bridges = [
+    {"asset": "ETH", "amount": 0.05, "status": "completed"},
+    {"asset": "USDC", "amount": 25, "status": "completed"},
+    {"asset": "DAI", "amount": 10, "status": "pending"},
+]
+
+completed = [bridge for bridge in bridges if bridge["status"] == "completed"]
+
+print(f"Completed Base bridges: {len(completed)}/{len(bridges)}")
+
+for bridge in bridges:
+    print(f"{bridge['asset']} - {bridge['amount']} - {bridge['status']}")
+EOF
+
+git add base_bridge_log.py
+git commit -m "add base bridge log"
+git push
