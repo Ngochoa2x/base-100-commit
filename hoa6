@@ -1,0 +1,10 @@
+cat > base_points.js <<'EOF'
+const user = "base builder";
+const points = 100;
+
+console.log(`${user} earned ${points} on-chain points 🚀`);
+EOF
+
+git add base_points.js
+git commit -m "add base points script"
+git push
