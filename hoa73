@@ -1,0 +1,32 @@
+cat > base_activity_calendar.py <<'EOF'
+from datetime import date, timedelta
+
+activities = {
+    "bridge": 2,
+    "swap": 5,
+    "mint": 3,
+    "vote": 1
+}
+
+today = date.today()
+
+print("Base weekly activity calendar:")
+
+for i, activity in enumerate(activities.items()):
+    day = today - timedelta(days=i)
+    name, count = activity
+    print(f"{day}: {name} x{count}")
+
+total_actions = sum(activities.values())
+
+print(f"Total weekly Base actions: {total_actions}")
+
+if total_actions >= 10:
+    print("Strong on-chain week 🚀")
+else:
+    print("Keep building your Base footprint.")
+EOF
+
+git add base_activity_calendar.py
+git commit -m "add base activity calendar"
+git push
