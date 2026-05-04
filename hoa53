@@ -1,0 +1,22 @@
+cat > base_rank.py <<'EOF'
+users = [
+    {"name": "Alice", "points": 320},
+    {"name": "Bob", "points": 180},
+    {"name": "Charlie", "points": 450},
+    {"name": "You", "points": 520},
+]
+
+ranking = sorted(users, key=lambda user: user["points"], reverse=True)
+
+print("Base builder ranking:")
+
+for index, user in enumerate(ranking, start=1):
+    print(f"{index}. {user['name']} - {user['points']} points")
+
+top_user = ranking[0]
+print(f"Top builder today: {top_user['name']} 🚀")
+EOF
+
+git add base_rank.py
+git commit -m "add base rank script"
+git push
