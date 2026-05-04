@@ -1,0 +1,12 @@
+START_DATE="2024-01-01"
+
+for i in {1..100}
+do
+  DATE=$(date -d "$START_DATE +$i days" +"%Y-%m-%dT12:00:00")
+
+  echo "log $i" >> history.txt
+  git add history.txt
+
+  GIT_AUTHOR_DATE="$DATE" GIT_COMMITTER_DATE="$DATE" \
+  git commit -m "update day $i"
+done
