@@ -1,0 +1,4 @@
+echo "console.log('hello github commit');" > main.js
+git add main.js
+git commit -m "add main js file"
+git push
