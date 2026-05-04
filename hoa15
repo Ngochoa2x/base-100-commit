@@ -1,0 +1,21 @@
+cat > base_level.py <<'EOF'
+activity_points = 275
+
+def get_level(points):
+    if points >= 500:
+        return "Legend Builder"
+    if points >= 250:
+        return "Pro Builder"
+    if points >= 100:
+        return "Active Builder"
+    return "New Builder"
+
+level = get_level(activity_points)
+
+print(f"Base activity points: {activity_points}")
+print(f"Current level: {level}")
+EOF
+
+git add base_level.py
+git commit -m "add base level script"
+git push
