@@ -1,0 +1,22 @@
+cat > base_quest_log.js <<'EOF'
+const quests = [
+  { name: "Bridge to Base", done: true },
+  { name: "Swap on Base", done: true },
+  { name: "Mint NFT", done: false },
+  { name: "Join community", done: true }
+];
+
+const completed = quests.filter(quest => quest.done).length;
+const total = quests.length;
+
+console.log(`Base quests completed: ${completed}/${total}`);
+
+quests.forEach((quest, index) => {
+  const status = quest.done ? "done" : "pending";
+  console.log(`${index + 1}. ${quest.name} - ${status}`);
+});
+EOF
+
+git add base_quest_log.js
+git commit -m "add base quest log"
+git push
