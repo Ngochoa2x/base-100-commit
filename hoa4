@@ -1,0 +1,4 @@
+echo "base commit $(date)" > base.txt
+git add base.txt
+git commit -m "add base file"
+git push
