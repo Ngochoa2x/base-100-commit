@@ -1,0 +1,14 @@
+cat > base_badge.py <<'EOF'
+badges = ["builder", "explorer", "degen", "creator"]
+
+def show_badges(items):
+    for index, badge in enumerate(items, start=1):
+        print(f"{index}. Base {badge.title()} Badge")
+
+show_badges(badges)
+print("Keep building. More badges coming 🚀")
+EOF
+
+git add base_badge.py
+git commit -m "add base badge script"
+git push
