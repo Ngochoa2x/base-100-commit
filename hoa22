@@ -1,0 +1,24 @@
+cat > base_airdrop_tracker.js <<'EOF'
+const tasks = [
+  { title: "Bridge ETH to Base", points: 50, completed: true },
+  { title: "Make a swap", points: 30, completed: true },
+  { title: "Mint an NFT", points: 25, completed: false },
+  { title: "Invite a friend", points: 20, completed: true }
+];
+
+const totalPoints = tasks
+  .filter(task => task.completed)
+  .reduce((sum, task) => sum + task.points, 0);
+
+console.log(`Base airdrop points: ${totalPoints}`);
+
+if (totalPoints >= 100) {
+  console.log("Nice. Wallet activity looks active 🚀");
+} else {
+  console.log("Keep building. More points to farm.");
+}
+EOF
+
+git add base_airdrop_tracker.js
+git commit -m "add base airdrop tracker"
+git push
